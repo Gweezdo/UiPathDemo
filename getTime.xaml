@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="getTime" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1848,1119.33333333333" sap2010:WorkflowViewState.IdRef="getTime_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="getTime" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1802.66666666667,1182.66666666667" sap2010:WorkflowViewState.IdRef="getTime_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="31">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -26,10 +26,16 @@
       <x:String>UiPath.UIAutomationNext.Enums</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Runtime.Serialization</x:String>
-    </sco:Collection>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -48,15 +54,19 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="getTime" sap:VirtualizedContainerService.HintSize="550.666666666667,804.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="getTime" sap:VirtualizedContainerService.HintSize="656.666666666667,1118" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Web" sap:VirtualizedContainerService.HintSize="508.666666666667,712.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="Web" sap:VirtualizedContainerService.HintSize="614.666666666667,1026" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
         <Variable x:TypeArguments="ui:GenericValue" Name="Div" />
       </Sequence.Variables>
@@ -65,19 +75,22 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open https://www.google.com/" sap:VirtualizedContainerService.HintSize="466.666666666667,620.666666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.google.com/">
+      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open https://www.google.com/" sap:VirtualizedContainerService.HintSize="572.666666666667,934" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.google.com/">
         <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,518" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="538.666666666667,831.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="asdf" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="time in bucharest">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="496.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="time in bucharest">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b5c18846-ea39-471b-a6ac-5a1a8b0e600a" InformativeScreenshot="d8068b3bac41cd5492e749ace9759aba" Selector="&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                     <ui:Target.TimeoutMS>
@@ -86,7 +99,7 @@
                   </ui:Target>
                 </ui:TypeInto.Target>
               </ui:TypeInto>
-              <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+              <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="496.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="59" OffsetY="14" Position="TopLeft" />
                 </ui:Click.CursorPosition>
@@ -98,7 +111,7 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="496.666666666667,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
                 <ui:GetValue.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d17638d-429b-4b6e-af3d-70139fbb87c5" InformativeScreenshot="8bd364c5d9f6246b8b2d16e00bce42c1" Selector="&lt;webctrl aria-role='heading' parentid='rso' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                     <ui:Target.TimeoutMS>
@@ -110,6 +123,8 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[Div]</OutArgument>
                 </ui:GetValue.Value>
               </ui:GetValue>
+              <ui:WriteRange AddHeaders="False" DataTable="[asdf]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="496.666666666667,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="skdjhf" />
+              <Switch x:TypeArguments="x:Int32" DisplayName="Switch" sap:VirtualizedContainerService.HintSize="496.666666666667,118.666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_1" />
             </Sequence>
           </ActivityAction>
         </ui:OpenBrowser.Body>
